@@ -1,4 +1,4 @@
-# oracle-of-pythia
+# Oracle of Delphi
 
 Creative project for PHIL 211 Greek Philosohpy I.
 
