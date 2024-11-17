@@ -1,6 +1,5 @@
 import Question from "./Question";
 
-
 /**
  * Advice Seekers, those who approach the Oracle
  *
@@ -8,14 +7,10 @@ import Question from "./Question";
 
 export default class AdviceSeeker {
     private name: string;
-    private occupation: string;
-    private trust: number;
-    private currQuestion: Question;  
+    public currQuestion: Question;  
 
-    constructor(name: string, occupation: string, startingQuestion: Question) {
+    constructor(name: string, startingQuestion: Question) {
         this.name = name;
-        this.occupation = occupation;
-        this.trust = 5.0;
         this.currQuestion = startingQuestion;
     }
 
@@ -23,16 +18,10 @@ export default class AdviceSeeker {
         return this.name;
     }
 
-    public getOccupation(): string {
-        return this.occupation;
-    }
-
-    public getTrust(): number {
-        return this.trust;
-    }
-
-    public getQuestion(): Question {
-        return this.currQuestion;
+    public answerQuestion(ans: string): string {
+        const { response, nextQ } = this.currQuestion.getResponse(ans);
+        this.currQuestion = nextQ;
+        return response;
     }
 
 }
