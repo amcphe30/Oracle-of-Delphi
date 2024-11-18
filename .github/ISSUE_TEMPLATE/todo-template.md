@@ -7,24 +7,18 @@ assignees: ''
 
 ---
 
-# To do: <title>
-<general description>
+## Description
 
-## Current Stage:
+### Current Stage:
 - [ ] Backlog
 - [ ] In progress
 
-## Roadmap
-1.
-2.
-...
+### Roadmap
+1. 
 
-## Time Estimate
-1.
-2.
-...
+### Time Estimate
 
-## Time Actual
-1.
-2.
-...
+
+### Time Actual
+1. tbd
+
