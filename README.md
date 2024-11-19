@@ -2,13 +2,11 @@
 
 Creative project for PHIL 211 Greek Philosohpy I.
 
-We were asked to create a creative project that connects ideas from Greek Philosohpy with another domain of our own interest. The invested effort required is roughly equal to an 1000 word essay and is more of a completion grade. I thought I would take the opportunity to explore React and web dev as my courses at UBC so far have not included that kind of content.
+We were asked to create a creative project that connects ideas from Greek Philosohpy with another domain of our own interest. The invested effort required is roughly equal to an 1000 word essay and is more of a completion grade. I thought I would take the opportunity to treat it as a personal project, exploring React and web dev as my courses at UBC so far have not included much of that kind of content.
 
-Below is the inital readme when creating react app
+I made heavy use of issues in this project to keep track of ongoing todos and practice time estimates for different tasks. Please check out open and closed issues to see the progression of this project.
 
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Below is a paired down version of the initial readme.md
 
 ### Available Scripts
 
