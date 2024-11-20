@@ -12,13 +12,15 @@ export interface Answer {
 
 export default class Question {
     private text: string;
+    private id: number;
     private answerA: Answer;
     private answerB: Answer;
     private answerC: Answer;
     private answerD: Answer;
 
-    constructor(text: string, a: Answer, b: Answer, c: Answer, d: Answer) {
+    constructor(text: string, id: number, a: Answer, b: Answer, c: Answer, d: Answer) {
         this.text = text;
+        this.id = id;
         this.answerA = a;
         this.answerB = b;
         this.answerC = c;
@@ -49,6 +51,10 @@ export default class Question {
             throw new Error(ans + " is an invalid answer");
         } 
         return { response: answer.response, nextQ: answer.nextQuestion }
+    }
+
+    public getID(): number {
+        return this.id;
     }
 
 }

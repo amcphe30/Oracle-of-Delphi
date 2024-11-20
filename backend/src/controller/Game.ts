@@ -53,8 +53,8 @@ export default class Game {
             nextQuestion: null,
             trustEffect: -3.0,
         }              
-        const kingQuestion1 = new Question("Should I go to war?", A, B, C, D);
-        const king = new AdviceSeeker("King Jim", kingQuestion1);
+        const kingQuestion1 = new Question("Should I go to war?", 0, A, B, C, D);
+        const king = new AdviceSeeker("King Jim", "", kingQuestion1);
         this.seekers.push(king);
     }
 

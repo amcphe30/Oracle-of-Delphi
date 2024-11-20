@@ -1,0 +1,245 @@
+{
+    "Q1": {
+        "text": "question text 1",
+        "A1": {
+            "value": "option A1 value",
+            "response": "response A1",
+            "nextQuestion": 0,
+            "trustEffect": -10.0
+        },
+        "B1": {
+            "value": "option B1 value",
+            "response": "response B1",
+            "nextQuestion": 0,
+            "trustEffect": 3.0
+        },
+        "C1": {
+            "value": "option C1 value",
+            "response": "response C1",
+            "nextQuestion": 2,
+            "trustEffect": -11.0
+        },
+        "D1": {
+            "value": "option D1 value",
+            "response": "response D1",
+            "nextQuestion": 0,
+            "trustEffect": 4.0
+        }
+    },
+    "Q2": {
+        "text": "question text 2",
+        "A2": {
+            "value": "option A2 value",
+            "response": "response A2",
+            "nextQuestion": 3,
+            "trustEffect": -10.0
+        },
+        "B2": {
+            "value": "option B2 value",
+            "response": "response B2",
+            "nextQuestion": 0,
+            "trustEffect": 5.0
+        },
+        "C2": {
+            "value": "option C2 value",
+            "response": "response C2",
+            "nextQuestion": 0,
+            "trustEffect": -11.0
+        },
+        "D2": {
+            "value": "option D2 value",
+            "response": "response D2",
+            "nextQuestion": 0,
+            "trustEffect": 2.0
+        }
+    },
+    "Q3": {
+        "text": "question text 3",
+        "A3": {
+            "value": "option A3 value",
+            "response": "response A3",
+            "nextQuestion": 0,
+            "trustEffect": -8.0
+        },
+        "B3": {
+            "value": "option B3 value",
+            "response": "response B3",
+            "nextQuestion": 0,
+            "trustEffect": 6.0
+        },
+        "C3": {
+            "value": "option C3 value",
+            "response": "response C3",
+            "nextQuestion": 0,
+            "trustEffect": -3.0
+        },
+        "D3": {
+            "value": "option D3 value",
+            "response": "response D3",
+            "nextQuestion": 0,
+            "trustEffect": 1.0
+        }
+    },
+    "Q4": {
+        "text": "question text 4",
+        "A4": {
+            "value": "option A4 value",
+            "response": "response A4",
+            "nextQuestion": 0,
+            "trustEffect": 4.0
+        },
+        "B4": {
+            "value": "option B4 value",
+            "response": "response B4",
+            "nextQuestion": 0,
+            "trustEffect": -5.0
+        },
+        "C4": {
+            "value": "option C4 value",
+            "response": "response C4",
+            "nextQuestion": 0,
+            "trustEffect": -9.0
+        },
+        "D4": {
+            "value": "option D4 value",
+            "response": "response D4",
+            "nextQuestion": 0,
+            "trustEffect": 3.0
+        }
+    },
+    "Q5": {
+        "text": "question text 5",
+        "A5": {
+            "value": "option A5 value",
+            "response": "response A5",
+            "nextQuestion": 6,
+            "trustEffect": -7.0
+        },
+        "B5": {
+            "value": "option B5 value",
+            "response": "response B5",
+            "nextQuestion": 7,
+            "trustEffect": 2.0
+        },
+        "C5": {
+            "value": "option C5 value",
+            "response": "response C5",
+            "nextQuestion": 8,
+            "trustEffect": -2.0
+        },
+        "D5": {
+            "value": "option D5 value",
+            "response": "response D5",
+            "nextQuestion": 9,
+            "trustEffect": 5.0
+        }
+    },
+    "Q6": {
+        "text": "question text 6",
+        "A6": {
+            "value": "option A6 value",
+            "response": "response A6",
+            "nextQuestion": 0,
+            "trustEffect": -4.0
+        },
+        "B6": {
+            "value": "option B6 value",
+            "response": "response B6",
+            "nextQuestion": 0,
+            "trustEffect": 4.0
+        },
+        "C6": {
+            "value": "option C6 value",
+            "response": "response C6",
+            "nextQuestion": 0,
+            "trustEffect": 1.0
+        },
+        "D6": {
+            "value": "option D6 value",
+            "response": "response D6",
+            "nextQuestion": 8,
+            "trustEffect": -6.0
+        }
+    },
+    "Q7": {
+        "text": "question text 7",
+        "A7": {
+            "value": "option A7 value",
+            "response": "response A7",
+            "nextQuestion": 0,
+            "trustEffect": -3.0
+        },
+        "B7": {
+            "value": "option B7 value",
+            "response": "response B7",
+            "nextQuestion": 0,
+            "trustEffect": 2.0
+        },
+        "C7": {
+            "value": "option C7 value",
+            "response": "response C7",
+            "nextQuestion": 9,
+            "trustEffect": 3.0
+        },
+        "D7": {
+            "value": "option D7 value",
+            "response": "response D7",
+            "nextQuestion": 0,
+            "trustEffect": 4.0
+        }
+    },
+    "Q8": {
+        "text": "question text 8",
+        "A8": {
+            "value": "option A8 value",
+            "response": "response A8",
+            "nextQuestion": 0,
+            "trustEffect": -2.0
+        },
+        "B8": {
+            "value": "option B8 value",
+            "response": "response B8",
+            "nextQuestion": 0,
+            "trustEffect": 6.0
+        },
+        "C8": {
+            "value": "option C8 value",
+            "response": "response C8",
+            "nextQuestion": 0,
+            "trustEffect": -1.0
+        },
+        "D8": {
+            "value": "option D8 value",
+            "response": "response D8",
+            "nextQuestion": 0,
+            "trustEffect": 5.0
+        }
+    },
+    "Q9": {
+        "text": "question text 9",
+        "A9": {
+            "value": "option A9 value",
+            "response": "response A9",
+            "nextQuestion": 0,
+            "trustEffect": -8.0
+        },
+        "B9": {
+            "value": "option B9 value",
+            "response": "response B9",
+            "nextQuestion": 0,
+            "trustEffect": 5.0
+        },
+        "C9": {
+            "value": "option C9 value",
+            "response": "response C9",
+            "nextQuestion": 0,
+            "trustEffect": -5.0
+        },
+        "D9": {
+            "value": "option D9 value",
+            "response": "response D9",
+            "nextQuestion": 0,
+            "trustEffect": 3.0
+        }
+    }
+}

@@ -8,9 +8,11 @@ import Question from "./Question";
 export default class AdviceSeeker {
     private name: string;
     public currQuestion: Question;  
+    private filePath: string;
 
-    constructor(name: string, startingQuestion: Question) {
+    constructor(name: string, filePath: string, startingQuestion: Question) {
         this.name = name;
+        this,filePath = filePath;
         this.currQuestion = startingQuestion;
     }
 
@@ -22,6 +24,10 @@ export default class AdviceSeeker {
         const { response, nextQ } = this.currQuestion.getResponse(ans);
         this.currQuestion = nextQ;
         return response;
+    }
+
+    public getFilepath(): string {
+        return this.filePath;
     }
 
 }
