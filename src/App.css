@@ -2,37 +2,90 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  width: 100vw;   
+  height: 100vh;   
+  overflow: hidden;  
+  margin: 0;        
+  padding: 0;       
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root {
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#background-container {
+  position: relative;  
+  height: 100vh;      
+  width: 100vw;      
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: black;  
+  overflow: hidden;  
 }
 
-.App-link {
-  color: #61dafb;
+#background-image {
+  width: 100%;       
+  height: 100%;      
+  object-fit: cover; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Seeker {
+  position: absolute; /* The seeker is positioned relative to the container */
+  top: 43%; /* Adjust this to place the seeker at the desired position */
+  left: 63%;
+  transform: translate(-50%, -50%); /* Center the seeker image */
+  z-index: 2; /* Ensure the seeker is on top of other content */
+}
+
+#seeker-image {
+  width: 1400px; /* Adjust the size of the seeker image */
+  height: auto;
+}
+
+.text-box {
+  position: absolute;  
+  top: 65%;        
+  left: 13%;     
+  padding: 20px;
+  color: black;    
+  font-size: 24px;
+}
+
+.Answer-A {
+  position: absolute;  
+  top: 63%;        
+  left: 57%;     
+  padding: 20px;
+  color: black;    
+  font-size: 24px;
+}
+
+.Answer-B {
+  position: absolute;  
+  top: 63%;        
+  left: 72%;     
+  padding: 20px;
+  color: black;    
+  font-size: 24px;
+}
+
+.Answer-C {
+  position: absolute;  
+  top: 73%;        
+  left: 57%;     
+  padding: 20px;
+  color: black;    
+  font-size: 24px;
+}
+
+.Answer-D {
+  position: absolute;  
+  top: 73%;        
+  left: 72%;     
+  padding: 20px;
+  color: black;    
+  font-size: 24px;
 }

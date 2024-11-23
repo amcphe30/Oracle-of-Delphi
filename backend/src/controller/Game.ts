@@ -13,11 +13,16 @@ export default class Game {
     private seekers: AdviceSeeker[];
     private currSeeker: AdviceSeeker;
 
-    constructor(name: string) {
+    constructor(name: string, test: boolean) {
         this.oracle = new Oracle(name);
-        this.loadSeekers();
-        this.currSeeker = this.seekers[0];
+        if (test) {
+            this.loadTestSeekers();
+            this.currSeeker = this.seekers[0];
+        } else {
+            this.loadSeekers();
+            this.currSeeker = this.seekers[0];
         // TODO: currSeeker should be originally set to a random from the list
+        }
     }
 
     /**
@@ -65,6 +70,10 @@ export default class Game {
     public answerQuestion(ans: string): void {
         const response = this.currSeeker.answerQuestion(ans);
         // TODO: set currSeeker to next seeker
+    }
+
+    private loadTestSeekers(): void {
+        this.seekers = [];
     }
 
 }
