@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NewScreen from './NewScreen';
 import './App.css';
 
 function App() {
@@ -31,35 +32,18 @@ function App() {
 
         <Routes>
           <Route path="/new-screen" element={<NewScreen />} />
+          <Route path="/" element={<Home />} /> {/* Define route for "/" */}
         </Routes>
       </div>
     </Router>
   );
 }
 
-function NewScreen() {
+function Home() {
   return (
-    <div id="background-container">
-        <img id="background-image" src="/background.png" alt="background" />
-        <div className="text-box">
-          <p>This is where the questions will go</p>
-          <p>Second line</p>
-        </div>
-        <div className="Answer-A">
-          <p>Answer A</p>
-        </div>
-        <div className="Answer-B">
-          <p>Answer B</p>
-        </div>
-        <div className="Answer-C">
-          <p>Answer C</p>
-        </div>        
-        <div className="Answer-D">
-          <p>Answer D</p>
-        </div>
-        <div className="Seeker">
-        <img id="seeker-image" src="Socrates.png" alt="background" />
-        </div>
+    <div>
+      <h1>Welcome to the Oracle of Delphi!</h1>
+      {/* You can add content here */}
     </div>
   );
 }

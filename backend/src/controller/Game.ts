@@ -2,6 +2,7 @@ import { Answer } from "./Question";
 import Question from "./Question"
 import Oracle from "./Oracle";
 import AdviceSeeker from "./AdviceSeeker";
+import { getContent, unzip } from "./queryLoaderHelpers";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -10,7 +11,7 @@ import AdviceSeeker from "./AdviceSeeker";
 
 export default class Game {
     private oracle: Oracle;
-    private seekers: AdviceSeeker[];
+    private seekers: AdviceSeeker[] = [];
     private currSeeker: AdviceSeeker;
 
     constructor(name: string, test: boolean) {
@@ -32,7 +33,7 @@ export default class Game {
     *
      */
 
-    private loadSeekers(): void {
+    private loadTestSeekers(): void {
         this.seekers = [];
         const A: Answer = {
             value: "option A: Yes",
@@ -64,7 +65,12 @@ export default class Game {
     }
 
     public getQuestionText(): { q: string, a: string, b: string, c: string, d: string } {
-        return this.currSeeker.currQuestion.getText();
+        if (this.currSeeker.hasQuestion() && this.currSeeker.currQuestion) {
+            return this.currSeeker.currQuestion.getText();
+        } else {
+            throw new Error("out of questions");
+            // update currSeeker to be nextSeeker
+        }
     }
 
     public answerQuestion(ans: string): void {
@@ -72,8 +78,11 @@ export default class Game {
         // TODO: set currSeeker to next seeker
     }
 
-    private loadTestSeekers(): void {
+    private async loadSeekers(): Promise<void> {
         this.seekers = [];
+        const content = await getContent("files.zip");
+        const unzippedFiles = unzip(content);
+        console.log(unzippedFiles);
     }
 
 }

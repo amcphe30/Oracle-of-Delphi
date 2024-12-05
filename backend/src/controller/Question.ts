@@ -37,7 +37,7 @@ export default class Question {
         };
     }
 
-    public getResponse(ans: string): { response: string, nextQ: Question } {
+    public getResponse(ans: string): { response: string, nextQ: Question | null } {
         let answer;
         if (ans === "a") {
             answer = this.answerA;
