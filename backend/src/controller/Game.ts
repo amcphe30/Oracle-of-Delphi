@@ -74,7 +74,11 @@ export default class Game {
     }
 
     public answerQuestion(ans: string): void {
-        const response = this.currSeeker.answerQuestion(ans);
+        if (this.currSeeker) {
+            const response = this.currSeeker.answerQuestion(ans);
+        } else {
+            throw new Error("Current Seeker is null");
+        }
         // TODO: set currSeeker to next seeker
     }
 
@@ -86,3 +90,5 @@ export default class Game {
     }
 
 }
+
+module.exports = Game;

@@ -48,7 +48,7 @@ export default class Question {
         } else if (ans === "d") {
             answer =  this.answerD;
         } else {
-            throw new Error(ans + " is an invalid answer");
+            throw new Error("Invalid answer");
         } 
         return { response: answer.response, nextQ: answer.nextQuestion }
     }

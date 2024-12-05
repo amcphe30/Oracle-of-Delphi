@@ -93,3 +93,4 @@ class Game {
     }
 }
 exports.default = Game;
+module.exports = Game;
