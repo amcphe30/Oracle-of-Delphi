@@ -24,20 +24,20 @@ class Question {
     }
     getResponse(ans) {
         let answer;
-        if (ans === "a") {
+        if (ans === "A") {
             answer = this.answerA;
         }
-        else if (ans === "b") {
+        else if (ans === "B") {
             answer = this.answerB;
         }
-        else if (ans === "c") {
+        else if (ans === "C") {
             answer = this.answerC;
         }
-        else if (ans === "d") {
+        else if (ans === "D") {
             answer = this.answerD;
         }
         else {
-            throw new Error(ans + " is an invalid answer");
+            throw new Error("Invalid answer");
         }
         return { response: answer.response, nextQ: answer.nextQuestion };
     }

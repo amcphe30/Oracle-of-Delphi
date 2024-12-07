@@ -5,30 +5,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  */
 class AdviceSeeker {
-    constructor(name, filePath, startingQuestion) {
+    constructor(name, filePath, startingQuestionID) {
         this.name = name;
         this.filePath = filePath;
-        this.currQuestion = startingQuestion;
-        console.log(this.currQuestion);
+        this.currQuestionID = startingQuestionID;
     }
     getName() {
         return this.name;
     }
-    answerQuestion(ans) {
-        if (this.currQuestion) {
-            const { response, nextQ } = this.currQuestion.getResponse(ans);
-            this.currQuestion = nextQ;
-            return response;
-        }
-        else {
-            throw new Error("currQuestion is null but you answered it ??");
-        }
-    }
     getFilepath() {
         return this.filePath;
     }
+    getQuestionID() {
+        if (this.currQuestionID) {
+            return this.currQuestionID;
+        }
+        else {
+            throw new Error("currQuestionID is null, this advice seeker has no more questions");
+        }
+    }
+    setQuestionID(newQuestionID) {
+        this.currQuestionID = newQuestionID;
+    }
     hasQuestion() {
-        return this.currQuestion !== null;
+        return this.currQuestionID !== null;
     }
 }
 exports.default = AdviceSeeker;

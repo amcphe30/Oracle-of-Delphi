@@ -7,36 +7,37 @@ import Question from "./Question";
 
 export default class AdviceSeeker {
     private name: string;
-    public currQuestion: Question | null;  
+    public currQuestionID: string | null;  
     private filePath: string;
 
-    constructor(name: string, filePath: string, startingQuestion: Question) {
+    constructor(name: string, filePath: string, startingQuestionID: string) {
         this.name = name;
         this.filePath = filePath;
-        this.currQuestion = startingQuestion;
-        console.log(this.currQuestion);
+        this.currQuestionID = startingQuestionID;
     }
 
     public getName(): string {
         return this.name;
     }
 
-    public answerQuestion(ans: string): string {
-        if (this.currQuestion) {
-            const { response, nextQ } = this.currQuestion.getResponse(ans);
-            this.currQuestion = nextQ;
-            return response;
-        } else {
-            throw new Error("currQuestion is null but you answered it ??");
-        }
-    }
-
     public getFilepath(): string {
         return this.filePath;
     }
 
+    public getQuestionID(): string {
+        if (this.currQuestionID) {
+            return this.currQuestionID;
+        } else {
+            throw new Error("currQuestionID is null, this advice seeker has no more questions");
+        }
+    }
+
+    public setQuestionID(newQuestionID: string | null): void {
+        this.currQuestionID = newQuestionID;
+    }
+
     public hasQuestion(): boolean {
-        return this.currQuestion !== null;
+        return this.currQuestionID !== null;
     }
 
 }

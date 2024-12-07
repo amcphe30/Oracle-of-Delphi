@@ -6,19 +6,19 @@
 export interface Answer {
 	value: string;
     response: string;
-    nextQuestion: Question | null;
+    nextQuestion: string | null;
     trustEffect: number;
 }
 
 export default class Question {
     private text: string;
-    private id: number;
+    private id: string;
     private answerA: Answer;
     private answerB: Answer;
     private answerC: Answer;
     private answerD: Answer;
 
-    constructor(text: string, id: number, a: Answer, b: Answer, c: Answer, d: Answer) {
+    constructor(text: string, id: string, a: Answer, b: Answer, c: Answer, d: Answer) {
         this.text = text;
         this.id = id;
         this.answerA = a;
@@ -37,15 +37,15 @@ export default class Question {
         };
     }
 
-    public getResponse(ans: string): { response: string, nextQ: Question | null } {
+    public getResponse(ans: string): { response: string, nextQ: string | null } {
         let answer;
-        if (ans === "a") {
+        if (ans === "A") {
             answer = this.answerA;
-        } else if (ans === "b") {
+        } else if (ans === "B") {
             answer =  this.answerB;
-        } else if (ans === "c") {
+        } else if (ans === "C") {
             answer =  this.answerC;
-        } else if (ans === "d") {
+        } else if (ans === "D") {
             answer =  this.answerD;
         } else {
             throw new Error("Invalid answer");
@@ -53,7 +53,7 @@ export default class Question {
         return { response: answer.response, nextQ: answer.nextQuestion }
     }
 
-    public getID(): number {
+    public getID(): string {
         return this.id;
     }
 

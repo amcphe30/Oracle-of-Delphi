@@ -14,7 +14,7 @@
       "C1": {
          "value": "option C1 value",
          "response": "response C1",
-         "nextQuestion": "Q2",
+         "nextQuestion": "Q21",
          "trustEffect": -11
       },
       "D1": {

@@ -45,12 +45,144 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unzip = exports.getContent = void 0;
+exports.makeSeeker = exports.makeSeekerObjects = exports.makeAnswer = exports.makeQuestionObjects = exports.parseThings = exports.unzip = exports.getContent = void 0;
 const jszip_1 = __importDefault(require("jszip"));
 const fs = __importStar(require("fs-extra"));
+const path = __importStar(require("path"));
+const Question_1 = __importDefault(require("./Question"));
+const AdviceSeeker_1 = __importDefault(require("./AdviceSeeker"));
+class FileLoader {
+    getGameContent(resFileName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const content = yield (0, exports.getContent)(resFileName + ".zip");
+            const unzippedFiles = yield (0, exports.unzip)(content);
+            const parsedObjects = yield (0, exports.parseThings)(unzippedFiles);
+            const questionBank = (0, exports.makeQuestionObjects)(parsedObjects[1]);
+            const seekers = (0, exports.makeSeekerObjects)(parsedObjects[0]);
+            return { questionBank, seekers };
+        });
+    }
+    getContent(fileName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const filePath = path.join(__dirname, '../../res/', fileName);
+            const buffer = yield fs.readFile(filePath);
+            return buffer.toString("base64");
+        });
+    }
+    unzip(content) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const unzippedFiles = [];
+            const jsZip = new jszip_1.default();
+            let tryResult;
+            try {
+                tryResult = yield jsZip.loadAsync(content, { base64: true });
+                if (Object.keys(tryResult.files).length === 0) {
+                    throw new Error("empty dir folder");
+                }
+            }
+            catch (err) {
+                throw new Error(`threw unzip: ${err}`);
+            }
+            const result = tryResult;
+            if (Object.keys(result.files).length === 0) {
+                throw new Error("empty dir folder");
+            }
+            const fileProms = Object.keys(result.files).map((filename) => __awaiter(this, void 0, void 0, function* () {
+                const fileData = yield result.files[filename].async("string");
+                unzippedFiles.push(fileData);
+            }));
+            yield Promise.all(fileProms);
+            return unzippedFiles;
+        });
+    }
+    parseThings(content) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const formatted = content
+                .filter((item) => item.trim().length > 0)
+                .map((item) => {
+                try {
+                    return JSON.parse(item);
+                }
+                catch (err) {
+                    void err;
+                }
+            })
+                .filter((obj) => obj != null);
+            if (formatted.length === 0) {
+                throw new Error("no questions");
+            }
+            return formatted;
+        });
+    }
+    makeQuestionObjects(jsonQuestions) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let questions = new Map;
+            Object.entries(jsonQuestions).forEach(([key, q]) => {
+                const qText = Object.values(q)[0];
+                const aAnswer = (0, exports.makeAnswer)(Object.values(q)[1]);
+                const bAnswer = (0, exports.makeAnswer)(Object.values(q)[2]);
+                const cAnswer = (0, exports.makeAnswer)(Object.values(q)[3]);
+                const dAnswer = (0, exports.makeAnswer)(Object.values(q)[4]);
+                const question = new Question_1.default(qText, key, aAnswer, bAnswer, cAnswer, dAnswer);
+                questions.set(key, question);
+            });
+            return questions;
+        });
+    }
+    makeAnswer(answerObj) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (typeof answerObj === "object" && answerObj !== null) {
+                let nextQ = null;
+                let trust = 0;
+                if (Object.keys(answerObj)[2] === "nextQuestion") {
+                    nextQ = Object.values(answerObj)[2];
+                    trust = Object.values(answerObj)[3];
+                }
+                else {
+                    trust = Object.values(answerObj)[2];
+                }
+                const answer = {
+                    value: Object.values(answerObj)[0],
+                    response: Object.values(answerObj)[1],
+                    nextQuestion: nextQ,
+                    trustEffect: trust,
+                };
+                return answer;
+            }
+            else {
+                throw new Error("Error creating answer object");
+            }
+        });
+    }
+    ;
+    makeSeekerObjects(jsonSeekers) {
+        let seekers = [];
+        Object.entries(jsonSeekers).forEach(([key, s]) => {
+            const seeker = (0, exports.makeSeeker)(key, s);
+            seekers.push(seeker);
+        });
+        return seekers;
+    }
+    makeSeeker(name, jsonSeeker) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (typeof jsonSeeker === "object" && jsonSeeker !== null) {
+                let filePath = Object.values(jsonSeeker)[1];
+                let startingQuestion = Object.values(jsonSeeker)[0];
+                const seeker = new AdviceSeeker_1.default(name, filePath, startingQuestion);
+                return seeker;
+            }
+            else {
+                throw new Error("Error creating answer object");
+            }
+        });
+    }
+    ;
+}
+exports.default = FileLoader;
+module.exports = FileLoader;
 const getContent = (fileName) => __awaiter(void 0, void 0, void 0, function* () {
-    let content;
-    const buffer = yield fs.readFile("../../res/" + fileName);
+    const filePath = path.join(__dirname, '../../res/', fileName);
+    const buffer = yield fs.readFile(filePath);
     return buffer.toString("base64");
 });
 exports.getContent = getContent;
@@ -76,9 +208,84 @@ const unzip = (content) => __awaiter(void 0, void 0, void 0, function* () {
         unzippedFiles.push(fileData);
     }));
     yield Promise.all(fileProms);
-    if (fileProms.length != 2) {
-        throw new Error("Zip file should contain 2 files, questions and seekers.");
-    }
     return unzippedFiles;
 });
 exports.unzip = unzip;
+const parseThings = (content) => __awaiter(void 0, void 0, void 0, function* () {
+    // Filter out empty strings and invalid JSON.
+    const formatted = content
+        .filter((item) => item.trim().length > 0) // Remove empty strings or spaces.
+        .map((item) => {
+        try {
+            return JSON.parse(item);
+        }
+        catch (err) {
+            void err;
+        }
+    })
+        .filter((obj) => obj != null); // Remove null entries.
+    if (formatted.length === 0) {
+        throw new Error("no questions");
+    }
+    return formatted;
+});
+exports.parseThings = parseThings;
+const makeQuestionObjects = (jsonQuestions) => {
+    let questions = new Map;
+    Object.entries(jsonQuestions).forEach(([key, q]) => {
+        const qText = Object.values(q)[0];
+        const aAnswer = (0, exports.makeAnswer)(Object.values(q)[1]);
+        const bAnswer = (0, exports.makeAnswer)(Object.values(q)[2]);
+        const cAnswer = (0, exports.makeAnswer)(Object.values(q)[3]);
+        const dAnswer = (0, exports.makeAnswer)(Object.values(q)[4]);
+        const question = new Question_1.default(qText, key, aAnswer, bAnswer, cAnswer, dAnswer);
+        questions.set(key, question);
+    });
+    return questions;
+};
+exports.makeQuestionObjects = makeQuestionObjects;
+const makeAnswer = (answerObj) => {
+    if (typeof answerObj === "object" && answerObj !== null) {
+        let nextQ = null;
+        let trust = 0;
+        if (Object.keys(answerObj)[2] === "nextQuestion") {
+            nextQ = Object.values(answerObj)[2];
+            trust = Object.values(answerObj)[3];
+        }
+        else {
+            trust = Object.values(answerObj)[2];
+        }
+        const answer = {
+            value: Object.values(answerObj)[0],
+            response: Object.values(answerObj)[1],
+            nextQuestion: nextQ,
+            trustEffect: trust,
+        };
+        return answer;
+    }
+    else {
+        throw new Error("Error creating answer object");
+    }
+};
+exports.makeAnswer = makeAnswer;
+const makeSeekerObjects = (jsonSeekers) => {
+    let seekers = [];
+    Object.entries(jsonSeekers).forEach(([key, s]) => {
+        const seeker = (0, exports.makeSeeker)(key, s);
+        seekers.push(seeker);
+    });
+    return seekers;
+};
+exports.makeSeekerObjects = makeSeekerObjects;
+const makeSeeker = (name, jsonSeeker) => {
+    if (typeof jsonSeeker === "object" && jsonSeeker !== null) {
+        let filePath = Object.values(jsonSeeker)[1];
+        let startingQuestion = Object.values(jsonSeeker)[0];
+        const seeker = new AdviceSeeker_1.default(name, filePath, startingQuestion);
+        return seeker;
+    }
+    else {
+        throw new Error("Error creating answer object");
+    }
+};
+exports.makeSeeker = makeSeeker;

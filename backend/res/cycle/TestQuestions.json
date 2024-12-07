@@ -44,6 +44,7 @@
       "D2": {
          "value": "option D2 value",
          "response": "response D2",
+         "nextQuestion": "Q1",
          "trustEffect": 2
       }
    },

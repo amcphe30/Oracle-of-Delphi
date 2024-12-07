@@ -1,14 +1,14 @@
 {
     "Test Seeker 1": {
-        "startingQuestion": 1,
+        "startingQuestion": "Q1",
         "imagePath": "./Socrates.png"
     },
     "Test Seeker 2": {
-        "startingQuestion": 4,
+        "startingQuestion": "Q4",
         "imagePath": "./Socrates.png"
     },
     "Test Seeker 3": {
-        "startingQuestion": 5,
+        "startingQuestion": "Q5",
         "imagePath": "./Socrates.png"
     }
 }
