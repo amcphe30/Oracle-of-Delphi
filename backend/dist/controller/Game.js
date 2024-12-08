@@ -16,14 +16,15 @@ class Game {
         this.currSeeker = this.seekers[0];
         this.test = test;
         this.currIndex = 0;
-        this.advanceSeeker();
+        //this.advanceSeeker();
     }
     getQuestionText() {
+        console.log("getting question");
         const res = this.getCurrentQuestion().getText();
-        this.advanceSeeker();
         return res;
     }
     answerQuestion(ans) {
+        console.log("answering question");
         const { response, nextQ } = this.getCurrentQuestion().getResponse(ans);
         this.currSeeker.setQuestionID(nextQ);
         this.advanceSeeker();
@@ -50,20 +51,21 @@ class Game {
     advanceSeeker() {
         if (!this.currSeeker.hasQuestion()) {
             this.seekers = this.seekers.filter(seeker => seeker !== this.currSeeker);
+            this.currIndex--;
         }
         if (this.test) {
             this.currIndex++;
-            if (this.currIndex === this.seekers.length) {
+            if (this.currIndex >= this.seekers.length) {
                 this.currIndex = 0;
             }
         }
         else {
             if (this.seekers.length === 0) {
-                console.log("Out of seekers");
+                throw new Error("out of seekers and nothing is in place to deal with it...");
             }
-            const index = Math.floor(Math.random() * (this.seekers.length));
-            this.currSeeker = this.seekers[index];
+            this.currIndex = Math.floor(Math.random() * (this.seekers.length));
         }
+        this.currSeeker = this.seekers[this.currIndex];
     }
 }
 exports.default = Game;

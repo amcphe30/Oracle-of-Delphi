@@ -38,8 +38,13 @@ async function initServer() {
         app.post('/submit-answer', (req, res) => {
             const { answer } = req.query;
             try {  
-                console.log(`Received answer: ${answer}`);
-                res.status(200).json({ message: `Answer received: ${answer}` });
+                if (answer) {
+                    const response = game.answerQuestion(answer.toString());
+                    console.log(`Received answer: ${answer}`);
+                    res.status(200).json({ message: `Answer received: ${answer}` });
+                } else {
+                    res.status(400).json({ message: `Answer received was undefined` });
+                }
             } catch (err) {
                 res.status(400).json({ error: 'Answer is required' });
             }

@@ -58,6 +58,8 @@ class FileLoader {
             const parsedObjects = yield this.parseThings(unzippedFiles);
             const questionBank = this.makeQuestionObjects(parsedObjects[1]);
             const seekers = this.makeSeekerObjects(parsedObjects[0]);
+            this.validateQuestions(questionBank);
+            this.validateFirstQuestions(seekers, questionBank);
             return { questionBank, seekers };
         });
     }
@@ -170,6 +172,17 @@ class FileLoader {
         }
     }
     ;
+    validateQuestions(questions) {
+        // look for cycle starting in each question in list, if found, throw error
+        // if nextQ doesn't exist in map, throw error
+    }
+    validateFirstQuestions(seekers, questions) {
+        seekers.forEach(seeker => {
+            if (!questions.has(seeker.getQuestionID())) {
+                throw new Error("Seeker's first question ID does not exist in bank");
+            }
+        });
+    }
 }
 exports.default = FileLoader;
 module.exports = FileLoader;

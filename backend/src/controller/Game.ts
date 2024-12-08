@@ -27,11 +27,13 @@ export default class Game {
     }
 
     public getQuestionText(): { q: string, a: string, b: string, c: string, d: string } {
+        console.log("getting question");
         const res = this.getCurrentQuestion().getText();
         return res;
     }
 
     public answerQuestion(ans: string): string {
+        console.log("answering question");
         const { response, nextQ } = this.getCurrentQuestion().getResponse(ans);
         this.currSeeker.setQuestionID(nextQ);
         this.advanceSeeker();

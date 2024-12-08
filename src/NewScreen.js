@@ -39,6 +39,7 @@ function NewScreen() {
     } catch (error) {
         console.error('Error fetching answer:', error);
     }
+    fetchQuestion();
 };
 
   // Fetch question when component mounts
