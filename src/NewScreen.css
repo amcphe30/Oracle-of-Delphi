@@ -3,6 +3,7 @@
   }
   
   html, body {
+    font-family: 'Cinzel', serif;
     width: 100vw;   
     height: 100vh;   
     overflow: hidden;  
@@ -33,15 +34,15 @@
   }
   
   .Seeker {
-    position: absolute; /* The seeker is positioned relative to the container */
-    top: 43%; /* Adjust this to place the seeker at the desired position */
+    position: absolute;
+    top: 43%; 
     left: 63%;
-    transform: translate(-50%, -50%); /* Center the seeker image */
-    z-index: 2; /* Ensure the seeker is on top of other content */
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
   }
   
   #seeker-image {
-    width: 1400px; /* Adjust the size of the seeker image */
+    width: 1400px;
     height: auto;
   }
   
@@ -54,6 +55,32 @@
     font-size: 24px;
   }
 
+  .Response {
+    position: fixed; 
+    top: 22%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: tan; 
+    border: 4px solid #d2b48c; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px; 
+    text-align: center;
+    z-index: 1000;
+    display: none;
+  }
+
+  .Response.show {
+    display: block;
+  }
+  
+  .Response h1, .Response p {
+    margin: 10px 0; 
+    color: #5a4a42;
+  }
+  
+
   button {
     align-items: center;
     justify-content: center;
@@ -65,6 +92,7 @@
     box-shadow: none;
     font-size: 18px;
     height: 50px;
+    font-family: 'Cinzel', serif;
   }
   
   .Answer-A button {

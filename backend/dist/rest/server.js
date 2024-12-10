@@ -48,8 +48,9 @@ function initServer() {
                 try {
                     if (answer) {
                         const response = game.answerQuestion(answer.toString());
+                        console.log(response);
                         console.log(`Received answer: ${answer}`);
-                        res.status(200).json({ message: `Answer received: ${answer}` });
+                        res.status(200).json(response);
                     }
                     else {
                         res.status(400).json({ message: `Answer received was undefined` });

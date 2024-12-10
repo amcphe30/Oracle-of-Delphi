@@ -12,10 +12,10 @@ function NewScreen() {
     c: "",
     d: "",
   });
+  const [response, displayResponse] = useState("");
+  const responseClass = response ? 'Response show' : 'Response';
 
-  // Function to fetch question
   const fetchQuestion = async () => {
-    console.log("getting question...");
     try {
       const response = await axios.get('http://localhost:3001/api/question');
       setQuestion(response.data);
@@ -31,15 +31,18 @@ function NewScreen() {
     }
   };
 
+
   const fetchResponse = async (answer) => {
-    console.log("getting answer...");
     try {
         const response = await axios.post(`http://localhost:3001/submit-answer?answer=${answer}`);
-        console.log(response.data);
+        displayResponse(response.data);
+        setTimeout(() => {
+          displayResponse(""); // Clear the response
+          fetchQuestion(); // Fetch the next question
+        }, 2000);
     } catch (error) {
         console.error('Error fetching answer:', error);
     }
-    fetchQuestion();
 };
 
   // Fetch question when component mounts
@@ -68,6 +71,9 @@ function NewScreen() {
       <div className="Seeker">
         <img id="seeker-image" src="Socrates.png" alt="Seeker" />
       </div>
+      <div className={responseClass}>
+        <p>{response}</p>
+    </div>
     </div>
   );
 }
