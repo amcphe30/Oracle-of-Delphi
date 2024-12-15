@@ -20,7 +20,7 @@ export default class AdviceSeeker {
         return this.name;
     }
 
-    public getFilepath(): string {
+    public getFilePath(): string {
         return this.filePath;
     }
 

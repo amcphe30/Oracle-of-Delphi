@@ -37,13 +37,13 @@
     position: absolute;
     top: 43%; 
     left: 63%;
-    transform: translate(-50%, -50%); 
     z-index: 2; 
   }
   
   #seeker-image {
-    width: 1400px;
-    height: auto;
+    width: 80px;  /* Adjust this value to control the image's width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 80px; /* Ensure it doesn't stretch beyond container size */
   }
   
   .text-box {
@@ -79,7 +79,6 @@
     margin: 10px 0; 
     color: #5a4a42;
   }
-  
 
   button {
     align-items: center;

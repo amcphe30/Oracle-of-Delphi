@@ -11,6 +11,7 @@ function NewScreen() {
     b: "",
     c: "",
     d: "",
+    fp: "",
   });
   const [response, displayResponse] = useState("");
   const responseClass = response ? 'Response show' : 'Response';
@@ -27,6 +28,7 @@ function NewScreen() {
         b: "default B",
         c: "default C",
         d: "default D",
+        filePath: "Socrates.png",
       });
     }
   };
@@ -69,7 +71,7 @@ function NewScreen() {
         <button type="button" onClick={() => fetchResponse("D")}>{question.d}</button>
       </div>
       <div className="Seeker">
-        <img id="seeker-image" src="Socrates.png" alt="Seeker" />
+        <img id="seeker-image" src={question.filePath} alt="Seeker" />
       </div>
       <div className={responseClass}>
         <p>{response}</p>

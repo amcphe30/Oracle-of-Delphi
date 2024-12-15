@@ -19,9 +19,10 @@ class Game {
         //this.advanceSeeker();
     }
     getQuestionText() {
-        console.log("getting question");
-        const res = this.getCurrentQuestion().getText();
-        return res;
+        const question = this.getCurrentQuestion().getText();
+        const filePath = this.currSeeker.getFilePath();
+        console.log(filePath);
+        return Object.assign(Object.assign({}, question), { filePath });
     }
     answerQuestion(ans) {
         console.log("answering question");

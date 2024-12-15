@@ -13,7 +13,7 @@ class AdviceSeeker {
     getName() {
         return this.name;
     }
-    getFilepath() {
+    getFilePath() {
         return this.filePath;
     }
     getQuestionID() {

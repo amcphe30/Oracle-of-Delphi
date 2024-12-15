@@ -26,10 +26,11 @@ export default class Game {
         //this.advanceSeeker();
     }
 
-    public getQuestionText(): { q: string, a: string, b: string, c: string, d: string } {
-        console.log("getting question");
-        const res = this.getCurrentQuestion().getText();
-        return res;
+    public getQuestionText(): { q: string, a: string, b: string, c: string, d: string, filePath: string } {
+        const question = this.getCurrentQuestion().getText();
+        const filePath = this.currSeeker.getFilePath();
+        console.log(filePath);
+        return { ...question, filePath };
     }
 
     public answerQuestion(ans: string): string {

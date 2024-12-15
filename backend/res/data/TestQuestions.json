@@ -1,0 +1,306 @@
+{
+   "Q1": {
+      "text": "My crops are dying! Should I abandon them?",
+      "A1": {
+         "value": "If you always leave when times are bad, you will never feel the relief of the times becoming good, as they always do.",
+         "response": "Okay, I will stay in search of a spring.",
+         "trustEffect": -10
+      },
+      "B1": {
+         "value": "Never back down, never give up.",
+         "response": "That’s intense, and I need to feed my family, I’m leaving.",
+         "trustEffect": 3
+      },
+      "C1": {
+         "value": "A rolling stone collects no moss.",
+         "response": "You’re right, the adversity is worth it, I will persevere.",
+         "nextQuestion": "Q2",
+         "trustEffect": -11
+      },
+      "D1": {
+         "value": "The earth has rejected you, why wallow in it?",
+         "response": "Okay, I’ll move on.",
+         "trustEffect": 4
+      }
+   },
+   "Q2": {
+      "text": "My crops survived! I found a hidden spring that revived them. But my wife has fallen ill. Should I take her to the healer in ___? Or stay to tend to my newly healthy crops?",
+      "A1": {
+         "value": "The Gods favour those who act with love.",
+         "response": "She is all that matters to me, I will entrust the farm to the gods.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "The Gods favour those who act in pragmatism.",
+         "response": "The journey is too long and she may not survive it, it is not worth it.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "The Gods favour those who trust their community.",
+         "response": "She is all that matters to me, I will entrust the farm to my dear and loyal friend.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "The Gods favour those who appreciate divine gifts.",
+         "response": "The crops were a gift, I must maintain them.",
+         "trustEffect": 0
+      }
+   },
+   "Q3": {
+      "text": "Should I go to war?",
+      "A1": {
+         "value": "A great empire will fall.",
+         "response": "You’re right, I shall declare it at once! Certainly the reign of __ will soon be over.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "You must be prudent in times of internal struggle.",
+         "response": "I have had low blood sugar lately, perhaps I should rethink.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "With great power comes great responsibility.",
+         "response": "I owe to my people to be pragmatic, I will enforce our battlements until the time is right.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "No.",
+         "response": "What? I’m going, whatever.",
+         "trustEffect": 0
+      }
+   },
+   "Q4": {
+      "text": "I held off on war, but a rebel uprising has begun. Do I pardon the rebel leader or make an example of them?",
+      "A1": {
+         "value": "Mercy today builds loyalty tomorrow.",
+         "response": "If you say so.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "Kindness sows seeds unseen.",
+         "response": "Indeed, perhaps just this once.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "Justice must be seen to be done.",
+         "response": "Indeed! I will make a grand show of their execution.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "A sharp axe dulls future dissent.",
+         "response": "Then I will call my blacksmith.",
+         "trustEffect": 0
+      }
+   },
+   "Q5": {
+      "text": "A blind man has been frequenting my stall. He cannot tell the true value of the coins he holds, would it be such an injustice to overcharge him? He seems well off.",
+      "A1": {
+         "value": "True wealth lies in honour, not coin.",
+         "response": "Fine.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "The gods see even what the blind cannot.",
+         "response": "How could I have even deigned to ask, my sincerest apologies.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "The gods reward those who seize what is offered.",
+         "response": "Perhaps this man is the answer to my prayers!",
+         "nextQuestion": "Q6",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "Fortune favors those bold enough to take it.",
+         "response": "Indeed it does, I must take my shot when it is presented.",
+         "nextQuestion": "Q6",
+         "trustEffect": 0
+      }
+   },
+   "Q6": {
+      "text": "I am rich! But still, my mother is old and I am unwed, why am I not yet happy?",
+      "A1": {
+         "value": "Joy is rarely found where it is purchased.",
+         "response": "Then perhaps I'll search for joy where gold cannot go.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "Wealth cannot fill the spaces love and duty leave empty.",
+         "response": "But what if duty is the weight that keeps me from soaring…?",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "The heart hungers for more than coin.",
+         "response": "If my heart hungers, surely more coin will sate it.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "Happiness may lie just beyond your next fortune.",
+         "response": "And if my next fortune is the key, then I will unlock it.",
+         "trustEffect": 0
+      }
+   },
+   "Q7": {
+      "text": "Who is the wisest among mortals?",
+      "A1": {
+         "value": "No one is wiser than Socrates.",
+         "response": "Oh I’m flattered.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "Such a title cannot be determined, not by Apollo, nor anyone.",
+         "response": "How could any idea evade the understanding of a god?",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "The gods alone are truly wise.",
+         "response": "That’s not especially satisfying.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "The wisest is he who listens to the voice of the divine within.",
+         "response": "That’s not especially satisfying.",
+         "nextQuestion": "Q8",
+         "trustEffect": 0
+      }
+   },
+   "Q8": {
+      "text": "Is it better to suffer injustice or to commit it?",
+      "A1": {
+         "value": "It is better to suffer than to corrupt the soul through wrongdoing.",
+         "response": "The fate of my soul is indeed the greater priority.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "Ask not what is better, but why you must choose.",
+         "response": "I’m certainly in a difficult position, that doesn’t help much.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "Suffering may pass, but the stain of injustice endures.",
+         "response": "The fate of my soul is indeed the greater priority.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "To suffer is to relinquish control; to act, is to hold it.",
+         "response": "To act, the right thing is to act against my values. How can this be true?",
+         "trustEffect": 0
+      }
+   },
+   "Q9": {
+      "text": "I have so many ideas, I want to share them. Socrates taught us that philosophy happens in conversations, but I must spread these ideas farther than the oral dialogue allows. What should I do?",
+      "A1": {
+         "value": "To share ideas with multitudes and through time, there is but one option.",
+         "response": "Okay, I will record them.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "The dialogue has special value, you say so yourself, you must keep this tradition.",
+         "response": "But how? I must find a way to spread these ideas.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "How can you reconcile these two needs? Is there truly no way to do both?",
+         "response": "You’re right! I will record my ideas as dialogues themselves!",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "Ink binds what speech sets free.",
+         "response": "Of course, I must maintain Socrates’ tradition.",
+         "trustEffect": 0
+      }
+   },
+   "Q10": {
+      "text": "What is the greatest good a mortal can achieve in their lifetime?",
+      "A1": {
+         "value": "The harmonization of one's soul.",
+         "response": "Indeed.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "An A grade on a PHIL 211 paper.",
+         "response": "Indeed.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "The proper tuning of a lyre.",
+         "response": "Indeed.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "The alignment of one's soul to the eternal forms.",
+         "response": "Indeed.",
+         "trustEffect": 0
+      }
+   },
+   "Q11": {
+      "text": "How can justice be defined?",
+      "A1": {
+         "value": "Justice is what is advantageous to the stronger party.",
+         "response": "Hm, strange.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "Justice is the intersection of rule and right.",
+         "response": "Justice, as all things, is internal harmony.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "Justice is what benefits the governed, not the governor of justice themselves.",
+         "response": "Hm, I'm not sure I'm convinced.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "Justice, as all things, is internal harmony.",
+         "response": "Indeed.",
+         "trustEffect": 0
+      }
+   },
+   "Q12": {
+      "text": "What should I study in school? I have many interests, I don’t know how to narrow it down.",
+      "A1": {
+         "value": "Engineering, you’ll get a good job and engage with your interests in mathematics.",
+         "response": "I suppose…",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "History, you’ll gain a better understanding of the world and how it came to be.",
+         "response": "That seems great! Though I have the feeling that’s not quite right…",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "Philosophy, you have a knack for curiosity and that must be cultivated.",
+         "response": "Hm, I’ll focus on Plato and Socrates perhaps.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "Near Eastern & Religious Studies, you’ll pursue your many interests at once.",
+         "response": "Wow! How did I not consider that?",
+         "nextQuestion": "Q13",
+         "trustEffect": 0
+      }
+   },
+   "Q13": {
+      "text": "What did you mean by Know Thyself?",
+      "A1": {
+         "value": "Idk, sounded philosophical.",
+         "response": "Hm.",
+         "trustEffect": 0
+      },
+      "B1": {
+         "value": "You must know what you do not know, only then can you become wisest.",
+         "response": "That’s interesting, I think I agree.",
+         "trustEffect": 0
+      },
+      "C1": {
+         "value": "You must know your place in the world, and do what is expected of you.",
+         "response": "Hm, I’m not so sure.",
+         "trustEffect": 0
+      },
+      "D1": {
+         "value": "The work of interpretation is up to you, the answer that speaks to you, when your inner self is in harmony, is the only truth worth seeking.",
+         "response": "Seems like a cop out, but I’ll give it a shot.",
+         "trustEffect": 0
+      }
+   }
+}

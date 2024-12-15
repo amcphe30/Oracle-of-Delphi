@@ -23,7 +23,7 @@ function initServer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const loader = new FileLoader_1.default();
-            const { questionBank, seekers } = yield loader.getGameContent("files");
+            const { questionBank, seekers } = yield loader.getGameContent("data");
             const game = new Game_1.default("test oracle name", questionBank, seekers, false);
             const app = (0, express_1.default)();
             const PORT = 3001;
@@ -37,6 +37,7 @@ function initServer() {
                 try {
                     console.log("getting question from game");
                     const question = game.getQuestionText();
+                    console.log(question);
                     res.json(question);
                 }
                 catch (err) {

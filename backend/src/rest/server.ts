@@ -10,7 +10,7 @@ initServer();
 async function initServer() {
     try {
         const loader = new FileLoader();
-        const { questionBank, seekers } = await loader.getGameContent("files");
+        const { questionBank, seekers } = await loader.getGameContent("data");
         const game = new Game("test oracle name", questionBank, seekers, false);
 
         const app = express();
@@ -29,6 +29,7 @@ async function initServer() {
             try {
                 console.log("getting question from game");
                 const question = game.getQuestionText();
+                console.log(question);
                 res.json(question);
             } catch (err) {
                 res.status(500).send('Error fetching question text');

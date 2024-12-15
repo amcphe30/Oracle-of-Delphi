@@ -1,0 +1,26 @@
+{
+    "Farmer": {
+        "startingQuestion": "Q1",
+        "imagePath": "Farmer.png"
+    },
+    "King Lydia": {
+        "startingQuestion": "Q3",
+        "imagePath": "KingLydia.png"
+    },
+    "Merchant": {
+        "startingQuestion": "Q5",
+        "imagePath": "Merchant.png"
+    },
+    "Socrates": {
+        "startingQuestion": "Q7",
+        "imagePath": "Socrates.png"
+    },
+    "Plato": {
+        "startingQuestion": "Q9",
+        "imagePath": "Plato.png"
+    },
+    "Dr Michael Griffin": {
+        "startingQuestion": "Q12",
+        "imagePath": "MichaelGriffin.png"
+    }
+}
