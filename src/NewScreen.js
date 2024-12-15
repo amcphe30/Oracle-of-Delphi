@@ -41,7 +41,7 @@ function NewScreen() {
         setTimeout(() => {
           displayResponse(""); // Clear the response
           fetchQuestion(); // Fetch the next question
-        }, 2000);
+        }, 3000);
     } catch (error) {
         console.error('Error fetching answer:', error);
     }
